@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: demo2-sa
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo2
+spec:
+  selector:
+    matchLabels:
+      app: demo2
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        app: demo2
+    spec:
+      serviceAccountName: demo2-sa
+      terminationGracePeriodSeconds: 5
+      restartPolicy: Always
+      containers:
+      - name: demo2
+        image: rodriguesflavio/demo2
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo2-service
+spec:
+  # This defines which pods are going to be represented by this Service
+  # The service becomes a network endpoint for either other services
+  # or maybe external users to connect to (eg browser)
+  selector:
+    app: demo2
+  ports:
+    - name: http
+      port: 8081
+      nodePort: 30081
+  type: NodePort
