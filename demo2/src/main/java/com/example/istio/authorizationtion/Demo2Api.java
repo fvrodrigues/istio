@@ -12,7 +12,7 @@ public class Demo2Api {
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/demo2")
-    public String greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+    public String greeting() {
         return "hello demo 2";
     }
 
