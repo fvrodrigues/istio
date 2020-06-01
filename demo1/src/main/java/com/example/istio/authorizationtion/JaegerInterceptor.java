@@ -16,6 +16,7 @@ public class JaegerInterceptor {
        return (httpRequest , bytes , clientHttpRequestExecution) -> {
            ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
            for (String header : headerJaeger.getHeaders()) {
+               System.out.print("HEADER" + servletRequestAttributes.getRequest().getHeader(header));
                 httpRequest.getHeaders().add(header,servletRequestAttributes.getRequest().getHeader(header));
            }
            return clientHttpRequestExecution.execute(httpRequest,bytes);
