@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/istio-authorization" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/istio-circuit-breaker" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/istio-environment" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/istio-traffic" vcs="Git" />
+  </component>
+</project>
